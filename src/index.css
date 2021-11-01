@@ -1,0 +1,107 @@
+@font-face { font-family: Montserrat; 
+    src: url('./assets/fonts/Montserrat/Montserrat-Light.ttf'); 
+}
+
+@font-face { font-family: Montserrat-Thin; 
+    src: url('./assets/fonts/Montserrat/Montserrat-Thin.ttf'); 
+}
+
+.headline {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.material-icons {
+    font-size: 2.4em;
+    cursor: pointer;
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+}
+
+.card .card-image .card-title {
+    font-size: 1.4rem;
+    color: #677074;
+    font-weight: 400;
+}
+
+.itemsImage {
+    height: 300px;
+}
+
+.cart {
+    margin-top:40px;
+}
+.collection .collection-item{
+    display: flex;
+}
+.collection-item.avatar .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #01303f;
+    display: block;
+    margin-bottom: 20px;
+    
+}
+.collection .collection-item img{
+    display: block;
+    width: 150px;
+    margin-right: 25px;
+    border-radius: 30px;
+}
+
+.item-desc{
+    align-self:center;
+}
+
+.nav-wrapper {
+    background-color: #416bf1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.brand-logo {
+    font-family: Montserrat-Thin, sans-serif;
+}
+
+.title {
+    font-size: 2rem;
+    font-family: Montserrat, sans-serif;
+}
+
+.description {
+    font-family: Montserrat, sans-serif;
+}
+.navDescription {
+    font-family: Montserrat-Thin, sans-serif;
+}
+
+.price {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    font-size: 1.1rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    color: #416bf1;
+}
+
+.login-button {
+    color: black;
+    font-weight: 600;
+}
+
+i.icon-dark {
+    color: #272727;
+}
