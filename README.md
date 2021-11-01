@@ -3,7 +3,7 @@
 This simple application prototype shows how we can use React and Redux to build a friendly user experience with instant visual updates.
 
 ## Demo
-[Here](https:/google.com/)
+[Here](www.google.com/)
 
 ## Features
 * Add and remove items 
