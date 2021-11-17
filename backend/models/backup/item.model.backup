@@ -1,0 +1,19 @@
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+// all types can be found here
+// https://mongoosejs.com/docs/schematypes.html
+
+const itemSchema = new Schema({
+    vendorId: {type: String, required: true},
+    itemname: {type: String, required: true},
+    desc: {type: String, required: true},
+    price: {type: Number, required: true},
+    itemId: {type: Object, required: true}
+})
+
+// image is the problem. MongoDB atlas free server can't
+//  deal with it. Find another way
+
+const Item = mongoose.model('Item', itemSchema);
+module.exports = Item;

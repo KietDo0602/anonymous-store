@@ -6,6 +6,8 @@ This simple application prototype shows how we can use React and Redux to build 
 [Here](/)
 
 ## Features
+* Create new user
+* Log In
 * Add and remove items 
 * Remove items
 * Edit the quantity of the items in real time
@@ -19,12 +21,23 @@ This simple application prototype shows how we can use React and Redux to build 
 
 ### Package installation
 ```bash
-cd backend
 npm install
 ```
- ### Start the React App
+ ### Start the Team 116 Store Website
+ To start the website, we need to start the backend first
  Excute the following command: 
 ```bash
+cd backend
 npm start
 ```
-The application will start automatically in your browser on http://localhost:3000
+
+Then, run the following command to return to root directory and start the website
+```
+cd ..
+npm start
+```
+Wait for 10-20 seconds. The application will start automatically in your browser on http://localhost:3000.
+
+Enjoy!
+
+Kiet Do

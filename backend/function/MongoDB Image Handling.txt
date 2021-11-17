@@ -1,0 +1,37 @@
+String newFileName = "image-from-kiet";
+File imageFile = new File("/users/image.png");
+GridFS gfsPhoto = new GridFS(db, "photo"); // Use GridFS to store files - especially those large than 16 MB
+GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
+gfsFile.setFilename(newFileName);
+gfsFile.save()
+
+var express = require('express'); 
+var fs = require('ile-system'); // Use File System(fs) library to perform file system operations 
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var multer = require('multer'); // Use Multer library to upload files
+
+mongoose.connect('url');
+
+var Item = new ItemSchema({ 
+    img: { 
+       data: Buffer, 
+       contentType: String 
+    }
+ }
+);
+var Item = mongoose.model('products',ItemSchema);
+
+app.use(multer({ dest: './uploads/',
+  rename: function (fieldname, filename) {
+    return filename;
+  },
+}));
+
+app.post('/api/photo',function(req,res){
+  var newItem = new Item();
+  newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
+  newItem.img.contentType = 'image/png';
+  newItem.save();
+});
+

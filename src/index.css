@@ -105,3 +105,15 @@
 i.icon-dark {
     color: #272727;
 }
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.LoginTitle {
+    font-family: Montserrat, sans-serif; 
+}

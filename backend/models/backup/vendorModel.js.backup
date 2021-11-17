@@ -1,0 +1,38 @@
+const mongoose = require('mongoose');
+
+const vendorSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    earnings: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    products: [{
+        name: {
+            type: String,
+            required: true
+        },
+        price: {
+            type: Number,
+            required: true
+        }
+    }]
+})
+
+const VendorModel = mongoose.model('Vendor', vendorSchema);
+module.exports = {
+    model: VendorModel,
+    // for .get route
+    find: () => VendorModel.find({}).select({name: 1, earnings: 1, products: 1,  _id: 1}),
+    // for .get/:id route
+    get: id => VendorModel.findOne({_id: id})
+        .select({name: 1, earnings: 1, products: 1,  _id: 1}),
+        updateProducts: (vendorObj) => VendorModel.updateOne({_id: vendorObj._id}, {products: vendorObj.products}),
+    // Below are methods used to update earnings
+    updateEarnings: (vendorObj) => VendorModel.updateOne({_id: vendorObj._id}, {earnings: vendorObj.earnings}),
+    zeroEarnings: () => VendorModel.updateMany({earnings: {$gt: 0}}, {earnings: 0}),
+    
+}

@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 class Recipe extends Component{
     
     componentWillUnmount() {
-         if(this.refs.shipping.checked)
-              this.props.substractShipping()
+         if(this.refs.shipping.checked) {
+            this.props.substractShipping()
+        }
     }
 
     handleChecked = (e)=>{
-        if(e.target.checked){
+        if(e.target.checked) {
             this.props.addShipping();
-        }
-        else{
+        } else {
             this.props.substractShipping();
         }
     }
@@ -23,17 +23,17 @@ class Recipe extends Component{
             <div className="container">
                 <div className="collection">
                     <li className="collection-item">
-                            <label>
-                                <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
-                                <span>Shipping($35)</span>
-                            </label>
-                        </li>
-                        <li className="collection-item"><b>Total: {this.props.total} $</b></li>
-                    </div>
-                    <div className="checkout">
-                        <button className="waves-effect waves-light blue btn">Checkout</button>
-                    </div>
-                 </div>
+                        <label>
+                            <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
+                            <span>Shipping($35)</span>
+                        </label>
+                    </li>
+                    <li className="collection-item"><b>Total: {this.props.total} $</b></li>
+                </div>
+                <div className="checkout">
+                    <button className="waves-effect waves-light blue btn">Checkout</button>
+                </div>
+            </div>
         )
     }
 }

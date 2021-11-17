@@ -1,3 +1,4 @@
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
 import Item1 from '../../images/keyboard.jpeg'
 import Item2 from '../../images/hushme.jpeg'
 import Item3 from '../../images/iphone4.jpeg'
@@ -7,10 +8,10 @@ import Item6 from '../../images/g502.jpg'
 import Item7 from '../../images/lg-tv.jpg'
 import Item8 from '../../images/pink-watch.jpg'
 import Item9 from '../../images/rangefinder.jpg'
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
+
 
 // Dummy Data for use / change
-const initState = {
+export const initState = {
     items: [
         {id:1,title:'Keychron K6 Keyboard', desc: "With this wireless keyboard, you can connect to multiple devices at the same time.", price:230,img: Item1},
         {id:2,title:'HushMe', desc: "Prevent others from hearing your calls", price:500,img: Item2},
@@ -24,19 +25,17 @@ const initState = {
     ],
     addedItems:[],
     total: 0
-
 }
-const cartReducer = (state = initState,action) => {
-   
+
+export function cartReducer (state = initState,action) {
     //INSIDE HOME COMPONENT
     if (action.type === ADD_TO_CART){
-          let addedItem = state.items.find(item=> item.id === action.id)
-          //check if the action id exists in the addedItems
+        let addedItem = state.items.find(item=> item.id === action.id)
          let existed_item= state.addedItems.find(item=> action.id === item.id)
          if (existed_item)
          {
             addedItem.quantity += 1 
-             return{
+             return {
                 ...state,
                  total: state.total + addedItem.price 
                   }
@@ -46,7 +45,7 @@ const cartReducer = (state = initState,action) => {
             //calculating the total
             let newTotal = state.total + addedItem.price 
             
-            return{
+            return {
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
                 total : newTotal
@@ -77,13 +76,13 @@ const cartReducer = (state = initState,action) => {
               total: newTotal
           }
     }
-    if(action.type === SUB_QUANTITY){  
+    if(action.type === SUB_QUANTITY) {  
         let addedItem = state.items.find(item=> item.id === action.id) 
         //if the qt == 0 then it should be removed
-        if(addedItem.quantity === 1){
+        if(addedItem.quantity === 1) {
             let new_items = state.addedItems.filter(item=>item.id !== action.id)
             let newTotal = state.total - addedItem.price
-            return{
+            return {
                 ...state,
                 addedItems: new_items,
                 total: newTotal
@@ -100,24 +99,23 @@ const cartReducer = (state = initState,action) => {
         
     }
 
-    if(action.type === ADD_SHIPPING){
+    if(action.type === ADD_SHIPPING) {
           return {
               ...state,
               total: state.total + 35
           }
     }
 
-    if(action.type === 'SUB_SHIPPING'){
+    if(action.type === 'SUB_SHIPPING') {
         return {
             ...state,
             total: state.total - 35
         }
   }
     
-  else{
+  else {
     return state
     }
-    
 }
 
 export default cartReducer;

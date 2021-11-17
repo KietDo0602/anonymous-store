@@ -1,0 +1,38 @@
+const router = require('express').Router();
+let Vendor = require('../../models/vendorModel.js.backup') 
+let Item = require('../../models/itemModel')
+
+
+// get
+router.route('/').get((req, res) => {
+    Vendor.find() // return promise
+    .then(vendors => res.json(vendors))
+    .catch(err => res.status(400).json(`Error: ${err}`))
+})
+
+// post
+router.route('/add').post((req, res) => {
+    const vendorname = req.body.vendorname;
+    const newVendor = new Vendor.model({vendorname})
+    console.log(`the id is ${newVendor._id}`)
+    
+    newVendor.save() // save it in mongoDB 
+    .then(() => res.json(`username: ${vendorname} added`))
+    .catch(err => res.status(400).json(`Error: ${err}`))
+})
+
+// needs to delete all asscoiated products first
+// delete
+router.route('/:id').delete((req, res) => {
+    let vendorTemp = getVendor(req.params.id)
+    .then(async () => {
+    for (let i = 0; i < vendorTemp.products.length; i++) 
+        await Item.model.findByOneAndDelete(vendorTemp.products[i]._id);
+    })
+    .then(() => Vendor.model.findByIdAndDelete(req.params.id))
+    .then(() => res.json('Vendor deleted'))
+    .catch(error => res.status(400).json(`Error: ${error}`))
+})
+
+
+module.exports = router;
