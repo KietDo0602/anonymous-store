@@ -19,6 +19,7 @@ This simple application prototype shows how we can use React and Redux to build 
 
 ### Package installation
 ```bash
+cd backend
 npm install
 ```
  ### Start the React App
