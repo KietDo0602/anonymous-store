@@ -8,13 +8,14 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import {UserContext} from "./UserContext"
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export function Login() {
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const [wrongPassword, setWrongPassword] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const checkUser = async (username, password) => {
         const res = await axios.get('http://localhost:3001/users');
@@ -30,6 +31,7 @@ export function Login() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setWrongPassword(false);
         const email = await checkUser(username, password);
         if (email === null) {
             setWrongPassword(true);
@@ -38,18 +40,16 @@ export function Login() {
         setWrongPassword(false);
         const user = {email, username, password};
         const response = await axios.post('http://localhost:3001/users/login', user);
-        const id = response.data._id;
-        const total = response.data.total;
-        const storeUser = {username, email, password, id, total};
+        const storeUser = response.data;
         setUser(storeUser);
-        window.localStorage.setItem('id', id);
-        window.localStorage.setItem('username', username);
-        window.localStorage.setItem('password', password);
+        window.localStorage.setItem('id', storeUser);
+        setLoggedIn(true);
     }
 
 
     return (
         <div>
+        
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box
@@ -95,7 +95,7 @@ export function Login() {
                     Sign In
                 </Button>
                 <h6>New User? <a href="/register">Create your account</a> </h6>
-                {user ? <h5 className="success">You are now logged in! Click <Link to="/">here</Link> to start shopping! </h5> : null}
+                {loggedIn ? <Redirect to="/" /> : null}
             </Box>
             </Box>
         </Container>
