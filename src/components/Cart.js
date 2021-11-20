@@ -28,7 +28,7 @@ function Cart(props) {
     // Handle remove a one quantity from an item
     const handleSubtractQuantity = async (props, item, user) => {
         if (user === null) {
-            props.removeQuantity(item.id);
+            props.subtractQuantity(item.id);
             return;
         }
         const userId = user._id;
