@@ -1,7 +1,11 @@
 {
-  "name": "my-shopping-cart",
+  "name": "anonymous-online-store",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
