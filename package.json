@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HAN-ARK/anonymous-online-store.git"
+    "url": "git+https://github.com/KietDo0602/anonymous-store.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HAN-ARK/anonymous-online-store/issues"
+    "url": "https://github.com/KietDo0602/anonymous-store/issues"
   },
-  "homepage": "https://github.com/HAN-ARK/anonymous-online-store#readme",
+  "homepage": "https://github.com/KietDo0602/anonymous-store#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
