@@ -12,8 +12,8 @@ Pui Hei Yan
 ## Features
 * Create new user
 * Log In
-* Add and remove items 
-* Remove items
+* Add and remove one quantities at a time 
+* Remove all items at once
 * Edit the quantity of the items in real time
 * Calculate automatically the total including the shipping (if chosen)
 
@@ -43,3 +43,4 @@ npm start
 Wait for 10-20 seconds. The application will start automatically in your browser on http://localhost:3000.
 
 Enjoy!  
+Kiet Do
