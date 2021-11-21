@@ -1,9 +1,13 @@
-# Basic e-commerce cart application built with React & Redux
+# Anonymous Online Store Application built with MERN Stack
+  
+# Manulife Team 116 members  
+Hanbyul Park  
+Donika Morina  
+Jananaen Selvapaskaran  
+Kiet Do  
+Muhammad Umair Ahsan  
+Pui Hei Yan  
 
-This simple application prototype shows how we can use React and Redux to build a friendly user experience with instant visual updates.
-
-## Demo
-[Here](https://anonymous-online-store.herokuapp.com/)
 
 ## Features
 * Create new user
@@ -38,6 +42,4 @@ npm start
 ```
 Wait for 10-20 seconds. The application will start automatically in your browser on http://localhost:3000.
 
-Enjoy!
-
-Kiet Do
+Enjoy!  
